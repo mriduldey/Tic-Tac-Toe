@@ -1,0 +1,116 @@
+body {
+  font: 14px;
+  font-family: "Roboto", sans-serif;
+  background-color: #fffd9f;
+}
+
+.board-row::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.square {
+  background: #fff;
+  border: 2px solid #2a2a2a;
+  float: left;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 70px;
+  height: 70px;
+  margin-right: -2px;
+  margin-top: -2px;
+  padding: 0;
+  text-align: center;
+  width: 70px;
+}
+
+.square.winning-square {
+  color: #adff2f;
+}
+
+.square.not-winning-square {
+  background-color: #2a2a2a8f;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: auto;
+  margin-top: 15vh;
+}
+
+.game-info {
+  margin-left: 100px;
+  height: 500px;
+  width: 600px;
+}
+
+label.status {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+label.status.status-winner {
+  color: rgba(12, 136, 12, 0.836);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+ol {
+  padding: 0px 30px 0px 30px;
+  list-style: none;
+  counter-reset: game-history-counter;
+}
+
+ol li {
+  margin-bottom: 3px;
+  counter-increment: game-history-counter;
+}
+
+ol li::before {
+  content: counter(game-history-counter) " ";
+  font-size: 20px;
+  padding: 3px 2px 3px 7px;
+  font-weight: 500;
+  color: #ffffffd5;
+  border-radius: 50%;
+  background-color: #da2b34;
+  border: 1px solid #2a2a2a;
+  margin-right: 20px;
+}
+
+ol li:nth-child(10)::before {
+  margin-right: 13px;
+  padding: 5px 0px 5px 5px;
+}
+
+ol li button {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 2px 30px 3px 30px;
+  background-color: #ffe501;
+  border: 1px solid #7c70007e;
+  border-radius: 6px;
+  color: #181010c2;
+}
+
+ol li button:focus {
+  outline: none;
+}
+
+ol li button.selected {
+  font-weight: 800;
+  outline: none;
+}
+
+ol li button span {
+  font-size: larger;
+  font-weight: bolder;
+}
