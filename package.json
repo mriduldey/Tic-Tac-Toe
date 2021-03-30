@@ -1,7 +1,9 @@
 {
   "name": "tic-tac-toe",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": "Mridul Dey",
+  "homepage": "https://mriduldey.github.io/Tic-Tac-Toe",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
