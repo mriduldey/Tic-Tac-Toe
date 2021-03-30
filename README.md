@@ -1,3 +1,11 @@
+# Live link
+
+https://mriduldey.github.io/Tic-Tac-Toe/
+
+( only for desktop | strictly not for mobile in current version, if opening from mobile try chrome desktop site)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
