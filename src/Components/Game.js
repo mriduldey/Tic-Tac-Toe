@@ -1,6 +1,6 @@
 import React from "react";
 
-const Square = (props) => {
+const Square = props => {
   return (
     <button className={`square ${props.classNameProp}`} onClick={props.onClick}>
       {props.value}
@@ -8,8 +8,8 @@ const Square = (props) => {
   );
 };
 
-const Board = (props) => {
-  const createClassName = (i) => {
+const Board = props => {
+  const createClassName = i => {
     const [a, b, c] = props.winningSquares;
     if (!(a === null)) {
       return i === a || i === b || i === c
@@ -19,7 +19,7 @@ const Board = (props) => {
     return "";
   };
 
-  const renderSquare = (i) => {
+  const renderSquare = i => {
     return (
       <Square
         value={props.board[i]}
@@ -30,7 +30,7 @@ const Board = (props) => {
     );
   };
 
-  const collectSquares = (row) => {
+  const collectSquares = row => {
     let rowSquares = [];
 
     for (let j = 0; j < 3; j++) {
@@ -123,7 +123,7 @@ class Game extends React.Component {
     });
   }
 
-  findSquareLocation = (index) => {
+  findSquareLocation = index => {
     let row, col;
 
     if (index < 4) {
@@ -159,10 +159,10 @@ class Game extends React.Component {
       const desc = move ? "Go to move #" + move : "Go to game start";
       const { row, col } = location;
       return (
-        <li key={move}>
+        <li key={move} className="d-flex justify-content-between align-items-center">
           <button
             onClick={() => this.jumpTo(move)}
-            className={`${move === stepNumber ? "selected" : ""}`}
+            className={`${move === stepNumber ? "selected" : ""} flex-fill`}
           >
             {desc}
             <span>{move ? ` (col: ${col}, row: ${row})` : ""}</span>
@@ -172,28 +172,30 @@ class Game extends React.Component {
     });
 
     return (
-      <div className="game">
-        <div>
-          <label className={`status ${winner ? "status-winner" : ""}`}>
-            {status}
-          </label>
-          <div className="game-board">
-            <Board
-              board={current.board}
-              winningSquares={winningSquares}
-              onClick={(i) => this.handleClick(i)}
-            />
+      <div className="game container mt-5">
+        <div className="row">
+          <div className="col-xs-12 col-md-6 d-flex flex-column justify-content-sm-center justify-content-md-start align-items-center">
+            <label className={`status ${winner ? "status-winner" : ""}`}>
+              {status}
+            </label>
+            <div className="game-board">
+              <Board
+                board={current.board}
+                winningSquares={winningSquares}
+                onClick={i => this.handleClick(i)}
+              />
+            </div>
           </div>
-        </div>
-        <div className="game-info">
-          <ol>{moves}</ol>
+          <div className="game-info col-xs-12 col-md-6 mt-5">
+            <ol className="px-1">{moves}</ol>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-const calculateWinner = (board) => {
+const calculateWinner = board => {
   const possibleLines = [
     [0, 1, 2],
     [0, 3, 6],

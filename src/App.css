@@ -37,20 +37,6 @@ body {
   outline: none;
 }
 
-.game {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin: auto;
-  margin-top: 15vh;
-}
-
-.game-info {
-  margin-left: 100px;
-  height: 500px;
-  width: 600px;
-}
-
 label.status {
   display: inline-block;
   margin-bottom: 10px;
@@ -63,7 +49,6 @@ label.status.status-winner {
 }
 
 ol {
-  padding: 0px 30px 0px 30px;
   list-style: none;
   counter-reset: game-history-counter;
 }
@@ -76,7 +61,7 @@ ol li {
 ol li::before {
   content: counter(game-history-counter) " ";
   font-size: 20px;
-  padding: 3px 2px 3px 7px;
+  padding: 3px 10px 3px 11px;
   font-weight: 500;
   color: #ffffffd5;
   border-radius: 50%;
